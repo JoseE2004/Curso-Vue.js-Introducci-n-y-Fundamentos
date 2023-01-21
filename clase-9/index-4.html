@@ -1,0 +1,43 @@
+<!-- Renplazamos el 
+v-on: por su abreviatura @ que es lo mislo
+v-bin: solo le dejamos con los : y es lo mismo
+
+usamos los @ para los eventos y 
+: par los atributos -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://unpkg.com/vue@next"></script>
+    <div id="app">{{ text }}</div>
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    text: "Hola Vue"                   
+                };
+            },
+            methods:{
+                input(e){
+                    this.text = e.target.value
+                }
+            },
+            template: `
+                <p>{{ text }}</p>
+                <input type="text"
+                @input="input"
+                :value="text"
+            />
+            `
+        }).mount("#app");
+        console.log(vm);
+    </script>
+</body>
+</html>
